@@ -1,0 +1,79 @@
+[
+  {
+    "_id": "MB-1001",
+    "title": "Bad Request",
+    "severity": 55,
+    "createdAt": 1706788857036,
+    "description": "bla bla",
+    "creator": {
+      "_id": "U1002",
+      "fullname": "Mister User"
+    }
+  },
+  {
+    "_id": "MB-1003",
+    "title": "Out of Memory",
+    "severity": 78,
+    "createdAt": 1706788857922,
+    "description": "bla bla",
+    "creator": {
+      "_id": "U1002",
+      "fullname": "Mister User"
+    }
+  },
+  {
+    "_id": "MB-1004",
+    "title": "Stack Overflow",
+    "severity": 49,
+    "createdAt": 1706788857733,
+    "description": "bla bla",
+    "creator": {
+      "_id": "U1003",
+      "fullname": "Ms User"
+    }
+  },
+  {
+    "title": "My New Bug",
+    "severity": "18",
+    "createdAt": 1706808070484,
+    "_id": "j7hz0S",
+    "description": "bla bla",
+    "creator": {
+      "_id": "U1004",
+      "fullname": "Miss User"
+    }
+  },
+  {
+    "_id": "Pw7w4r",
+    "title": "my first bug",
+    "severity": 79,
+    "description": "with middleware",
+    "createdAt": "2024-02-19T09:01:25.101Z",
+    "creator": {
+      "_id": "U1001",
+      "fullname": "User Me"
+    }
+  },
+  {
+    "_id": "E1t3E1",
+    "title": "thats me",
+    "severity": 18,
+    "description": "hgjhgjhg",
+    "createdAt": "2024-02-19T09:46:35.634Z",
+    "creator": {
+      "_id": "mV9VLc",
+      "fullname": "yoyo you"
+    }
+  },
+  {
+    "title": "my bug",
+    "severity": 18,
+    "description": "good",
+    "_id": "uunSVC",
+    "createdAt": "2024-02-20T11:23:28.594Z",
+    "creator": {
+      "_id": "U1001",
+      "fullname": "User Me"
+    }
+  }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "_id": "MB-1001",
+    "title": "Bad Request",
+    "severity": 55,
+    "createdAt": 1706788857036
+  },
+  {
+    "_id": "MB-1003",
+    "title": "Out of Memory",
+    "severity": 78,
+    "createdAt": 1706788857922
+  },
+  {
+    "_id": "MB-1004",
+    "title": "Stack Overflow",
+    "severity": 49,
+    "createdAt": 1706788857733
+  },
+  {
+    "title": "My New Bug",
+    "severity": "18",
+    "createdAt": 1706808070484,
+    "_id": "j7hz0S"
+  }
+]

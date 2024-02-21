@@ -1,0 +1,47 @@
+[
+  {
+    "_id": "U1002",
+    "fullname": "Mister User",
+    "username": "mister",
+    "password": "1234",
+    "score": "75",
+    "createdAt": "2024-02-12T17:24:55.721Z"
+  },
+  {
+    "_id": "U1003",
+    "fullname": "Ms User",
+    "username": "misses",
+    "password": "1234",
+    "score": "97",
+    "createdAt": "2024-02-12T17:24:55.721Z"
+  },
+  {
+    "_id": "U1004",
+    "fullname": "Miss User",
+    "username": "miss",
+    "password": "1234",
+    "score": 89,
+    "createdAt": "2024-02-13T09:17:00.061Z"
+  },
+  {
+    "_id": "AvRjT8",
+    "fullname": "aa123!",
+    "username": "bbb123",
+    "score": 888123,
+    "createdAt": "2024-02-12T20:19:27.227Z"
+  },
+  {
+    "_id": "h8P8Uc",
+    "username": "Hagit",
+    "score": 1001,
+    "createdAt": "2024-02-13T09:27:07.789Z"
+  },
+  {
+    "_id": "jPWJWr",
+    "fullname": "Test User",
+    "username": "testuser",
+    "password": "1234567890",
+    "score": 79,
+    "createdAt": "2024-02-13T09:46:51.035Z"
+  }
+]

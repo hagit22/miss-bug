@@ -1,0 +1,78 @@
+[
+  {
+    "_id": "MB-1001",
+    "title": "Bad Request",
+    "severity": 22,
+    "description": "good",
+    "labels": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e"
+    ]
+  },
+  {
+    "_id": "gbGfwi",
+    "title": "Server down",
+    "severity": 0,
+    "description": null,
+    "labels": [
+      "b",
+      "c"
+    ],
+    "createdAt": "2024-02-13T14:19:35.506Z"
+  },
+  {
+    "_id": "4REfFT",
+    "title": "Communication error",
+    "severity": "64",
+    "description": "Description for Communication error",
+    "createdAt": 1706879765852,
+    "labels": [
+      "c",
+      "d"
+    ]
+  },
+  {
+    "_id": "CXTdIs",
+    "title": "Stack overflow",
+    "severity": "82",
+    "description": "Description for Stack overflow",
+    "createdAt": 1706886229190,
+    "labels": [
+      "e"
+    ]
+  },
+  {
+    "title": "New Bug !!!",
+    "severity": 99,
+    "description": "new description from postman - using REST API",
+    "labels": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "_id": "kZASjD"
+  },
+  {
+    "_id": "6rMJB6",
+    "title": "123",
+    "severity": 0,
+    "description": null,
+    "labels": [],
+    "createdAt": "2024-02-13T15:14:44.705Z"
+  },
+  {
+    "title": "bug by user",
+    "severity": 0,
+    "description": "",
+    "_id": "RPo2b5",
+    "createdAt": 1707648994401,
+    "creator": {
+      "id": "U1002",
+      "fullname": "Mister User"
+    }
+  }
+]
