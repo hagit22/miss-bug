@@ -18,9 +18,17 @@ app.use(cors(corsOptions))
 app.use(express.static('public'))
 app.use(express.json())
 app.use(cookieParser())
+
+// Modules Routes
 app.use('/api/bug', bugRoutes)
 app.use('/api/user', userRoutes)
 app.use('/api/auth', authRoutes)
+
+// Fallback route
+app.get('/**', (req, res) => {
+    res.sendFile(path.resolve('public/index.html'))
+})
+
 
 app.listen(port, () => console.log(`Miss bug Server is ready for your requests! Listening on port ${port}!`))
 
