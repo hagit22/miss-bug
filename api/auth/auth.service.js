@@ -55,8 +55,11 @@ async function signup({ username, password, fullname }) {
     loggerService.debug(`auth.service - signup with username: ${username}, fullname: ${fullname}`)
     if (!username || !password || !fullname) throw 'Missing required signup information'
     
-    const userExist = await userService.getByUsername(username)
-    if (userExist) throw 'Username already taken'
+    try {
+        const existingUser = await userService.getByUsername(username)
+        if (existingUser) throw 'Username already taken'
+    }
+    catch{ /* continue */ }
     
     const saltRounds = 10
     const hash = await bcrypt.hash(password, saltRounds)
