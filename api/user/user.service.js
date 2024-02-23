@@ -1,5 +1,7 @@
 import { utilService } from '../../services/util.service.js'
 import { loggerService } from '../../services/logger.service.js'
+import { dbService } from '../../services/db.service.js';
+import { ObjectId } from 'mongodb';
 
 export const userService = {
     query,
@@ -9,11 +11,13 @@ export const userService = {
     save,
 }
 
-const USER_FILE_NAME = './data/user.json'
-var users = utilService.readJsonFile(USER_FILE_NAME)
+const COLLECTION = 'user'
 
 async function query() {
     try {
+        const collection = await dbService.getCollection(COLLECTION)
+        const users = await collection.find().toArray()
+        users.forEach(user => delete user.password)
         return users
     } 
     catch(err) {
@@ -24,7 +28,9 @@ async function query() {
 
 async function getById(userId) {
     try {
-        const user = users.find(user => user._id === userId)
+        const collection = await dbService.getCollection(COLLECTION)
+        const user = await collection.findOne({ _id: new ObjectId(userId) })
+        delete user.password
         return user
     } 
     catch (err) {
@@ -35,7 +41,9 @@ async function getById(userId) {
 
 async function getByUsername(username) {
     try {
-        const user = users.find(user => user.username === username)
+        const collection = await dbService.getCollection(COLLECTION)
+        const user = await collection.findOne({ username })
+        delete user.password
         return user
     } 
     catch (err) {
@@ -45,36 +53,36 @@ async function getByUsername(username) {
 }
 
 async function remove(userId) {
-    const index = users.findIndex(user => user._id === userId)
-    users.splice(index, 1)
     try {
-        utilService.saveEntitiesToFile(users, USER_FILE_NAME)
+        const collection = await dbService.getCollection(COLLECTION)
+        const { acknowledged } = await collection.deleteOne({ _id: new ObjectId(userId) })
+        return acknowledged ? `User ${userId} removed` : `Did not remove user ${userId}`
     } 
     catch (err) {
         loggerService.error(`Had problems removing user ${userId}...`)
         throw err
     }
-    return `User ${userId} removed`
 }
 
 async function save(userToSave) {
     try {
+        const collection = await dbService.getCollection(COLLECTION)
         if(userToSave._id && userToSave._id.length > 0) {
-            const idx = users.findIndex(user => user._id === userToSave._id)
-            if(idx === -1) throw 'Bad Id'
-            userToSave.createdAt = new Date(Date.now()).toISOString()
-            users.splice(idx, 1, userToSave)
-        } 
+            const userUpdate = {
+                fullname: userToSave.fullname,
+                score: userToSave.score,
+            }
+            const { acknowledged } = await collection.updateOne({ _id: new ObjectId(userToSave._id) }, { $set: userUpdate })
+            return acknowledged ? userToSave : `Did not update user`
+         } 
         else {
-            userToSave._id = utilService.makeId()
-            userToSave.createdAt = new Date(Date.now()).toISOString()
-            users.push(userToSave)
+            const { acknowledged } = await collection.insertOne(userToSave)
+            return acknowledged ? userToSave : `Did not add user`
         }
-        utilService.saveEntitiesToFile(users, USER_FILE_NAME)
     } catch (err) {
         loggerService.error(`Had problems saving user ${userToSave._id}...`)
         throw err
     }
-    return userToSave
 }
+
 

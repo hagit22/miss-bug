@@ -90,7 +90,7 @@ async function save(bugToSave, loggedinUser) {
         else {
             bugToSave.creator = {_id: loggedinUser._id, fullname:  loggedinUser.fullname}
             const { acknowledged } = await collection.insertOne(bugToSave)
-            return acknowledged ? bugToSave : `Did add bug`
+            return acknowledged ? bugToSave : `Did not add bug`
         }
     } catch (err) {
         loggerService.error(`Had problems saving bug ${bugToSave._id}...`)
