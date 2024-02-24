@@ -27,9 +27,9 @@ app.use('/api/user', userRoutes)
 app.use('/api/auth', authRoutes)
 
 // Fallback route
-/*app.get('/**', (req, res) => {
+app.get('/**', (req, res) => {
     res.sendFile(path.resolve('public/index.html'))
-})*/
+})
 
 
 app.listen(port, () => console.log(`Miss bug Server is ready for your requests! Listening on port ${port}!`))
