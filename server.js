@@ -2,6 +2,7 @@ import express from 'express'
 import cors from 'cors'
 import cookieParser from 'cookie-parser'
 import { bugRoutes } from './api/bug/bug.routes.js'
+import { msgRoutes } from './api/msg/msg.routes.js'
 import { userRoutes } from './api/user/user.routes.js'
 import { authRoutes } from './api/auth/auth.routes.js'
 
@@ -21,6 +22,7 @@ app.use(cookieParser())
 
 // Modules Routes
 app.use('/api/bug', bugRoutes)
+app.use('/api/msg', msgRoutes)
 app.use('/api/user', userRoutes)
 app.use('/api/auth', authRoutes)
 

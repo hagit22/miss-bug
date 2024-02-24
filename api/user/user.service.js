@@ -1,7 +1,6 @@
-import { utilService } from '../../services/util.service.js'
+import { ObjectId } from 'mongodb';
 import { loggerService } from '../../services/logger.service.js'
 import { dbService } from '../../services/db.service.js';
-import { ObjectId } from 'mongodb';
 
 export const userService = {
     query,

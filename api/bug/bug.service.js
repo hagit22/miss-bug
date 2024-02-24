@@ -1,7 +1,6 @@
-import { utilService } from '../../services/util.service.js'
+import { ObjectId } from 'mongodb';
 import { loggerService } from '../../services/logger.service.js'
 import { dbService } from '../../services/db.service.js';
-import { ObjectId } from 'mongodb';
 
 
 export const bugService = {
@@ -32,7 +31,7 @@ async function query(filterBy = {}, sortObj = {}) {
         if (sortObj.sortBy !== '') {
             const sortKey = sortObj.sortBy != 'createdAt' ? sortObj.sortBy : '_id'
             const sortDir = sortObj.isAscending == "true" ? 1 : -1
-            bugCursor.collation({locale: "en" }).sort({[sortKey]: sortDir})
+            bugCursor.collation({locale: "en" }).sort({[sortKey]: sortDir}) // the 'local' is for not being case sensitive
         }
     
         const bugs = bugCursor.toArray()
